@@ -24,10 +24,12 @@
                 <a class="nav-link" href="/signup">Signup</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="text">
-              <button class="btn btn-primary" type="button">Search</button>
-            </form>
+            {% if home %}
+              <form class="d-flex" method="post">
+                <input class="form-control me-2" name="search" type="text">
+                <button class="btn btn-primary" type="submit">Search</button>
+              </form>
+            {% endif %}
           </div>
         </div>
       </nav>

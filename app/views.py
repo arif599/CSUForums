@@ -1,7 +1,11 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 
 views = Blueprint("views", __name__)
 
-@views.route("/")
+@views.route("/", methods=["GET", "POST"])
 def home():
-    return render_template("home.html", name="arif")
+    if request.method == "POST":
+        print(request.form["search"])
+        return render_template("home.html")
+    else:
+        return render_template("home.html", home=True)
